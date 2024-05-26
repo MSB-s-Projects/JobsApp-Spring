@@ -1,0 +1,30 @@
+### GET jobs
+GET http://localhost:8080/jobs
+
+### GET job
+GET http://localhost:8080/jobs/1
+
+### create job
+POST http://localhost:8080/jobs
+Content-Type: application/json
+
+{
+  "title": "Software Engineer",
+  "minSalary": "100000",
+  "maxSalary": "150000",
+  "location": "San Francisco"
+}
+
+### update job
+PUT http://localhost:8080/jobs/2
+Content-Type: application/json
+
+{
+  "title": "Analyst",
+  "minSalary": "100000",
+  "maxSalary": "150000",
+  "location": "San Francisco"
+}
+
+### delete job
+DELETE http://localhost:8080/jobs/2
