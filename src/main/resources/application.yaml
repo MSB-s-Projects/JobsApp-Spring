@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: FirstJobApp
+
+  # H2 database
+#  h2:
+#    console:
+#      enabled: true
+#  datasource:
+#    url: jdbc:h2:mem:test
+#  jpa:
+#    database: h2
+
+  # Postgres
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testdb
+    username: admin
+    password: user
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect

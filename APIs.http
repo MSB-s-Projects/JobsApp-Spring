@@ -28,3 +28,7 @@ Content-Type: application/json
 
 ### delete job
 DELETE http://localhost:8080/jobs/2
+
+
+### 404 error
+GET http://localhost:8080/asdfa
