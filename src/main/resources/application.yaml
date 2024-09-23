@@ -12,8 +12,6 @@ spring:
     database: h2
     show-sql: true
     hibernate:
-      ddl-auto: update
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
       ddl-auto: create-drop
 
 #  # Postgres
