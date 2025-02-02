@@ -1,4 +1,19 @@
-FROM openjdk:24-jdk
+FROM maven:3-openjdk-22 as build
 VOLUME /tmp
-COPY FirstJobApp-0.0.1-SNAPSHOT.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+
+WORKDIR /app
+
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+FROM openjdk:22-jdk-slim
+WORKDIR /app
+
+COPY --from=build /app/target/FirstJobApp-0.0.1-SNAPSHOT.jar .
+
+EXPOSE 8080
+
+ENTRYPOINT ["java","-jar","/app/FirstJobApp-0.0.1-SNAPSHOT.jar"]
